@@ -1,29 +1,42 @@
-# Isha — A Little World of Happiness
+# For Isha — A Little World of Happiness
 
-A mobile-first birthday surprise website for Isha.
+A mobile-first, responsive birthday surprise made with warm wishes.
 
-## Hosting
-This is a static site and can be hosted directly with GitHub Pages.
+## GitHub Pages deployment
 
-1. Open repository **Settings → Pages**.
+1. Open **Settings → Pages** in this repository.
 2. Under **Build and deployment**, choose **Deploy from a branch**.
 3. Select branch `main` and folder `/ (root)`.
-4. Save. GitHub Pages will publish the site.
+4. Save and wait for GitHub Pages to finish publishing.
 
-## Personal photos
-The gallery currently contains four designed photo placeholders. Replace each placeholder inside the matching `<figure class="photo">` in `index.html` with an image tag, for example:
+## Add Isha's photos
+
+The gallery currently contains four elegant photo placeholders. Once you have the photos she is comfortable sharing on this page:
+
+1. Create a folder named `assets` in the repository.
+2. Add the selected images with these filenames:
+   - `isha-01.jpg`
+   - `isha-02.jpg`
+   - `isha-03.jpg`
+   - `isha-04.jpg`
+3. In `index.html`, replace each matching `<div class="photo-frame"> ... </div>` placeholder with:
 
 ```html
-<div class="photo-frame"><img src="assets/isha-01.jpg" alt="Isha smiling"></div>
+<div class="photo-frame">
+  <img src="assets/isha-01.jpg" alt="A happy memory" loading="lazy">
+</div>
 ```
 
-Add selected photos to an `assets/` folder. Only use photos that Isha is comfortable having included.
+Use the corresponding filename for each photo. Portrait images around 4:5 work best. Only include photos she is comfortable having on the website.
 
 ## WhatsApp friendship response
-The final friendship choices generate a pre-filled WhatsApp message to the configured number. Isha must review and press **Send** herself. The site does not send messages automatically or save answers in a database.
 
-## Notes
-- No backend, login, analytics, or tracking.
-- Mobile-first and responsive.
-- Reduced-motion preferences are respected.
-- The site uses plain HTML, CSS, and JavaScript.
+The final friendship choices create a pre-filled WhatsApp message to the configured number. The visitor reviews the message and must press **Send** themselves. The website does not send messages automatically and does not save answers in a database.
+
+## Privacy and implementation
+
+- Static HTML, CSS and JavaScript — no backend or database.
+- No login, analytics, or tracking.
+- No answer is sent until the visitor chooses to send it in WhatsApp.
+- Mobile-first layout, keyboard focus styles, and reduced-motion support.
+- The website can be hosted on GitHub Pages.
