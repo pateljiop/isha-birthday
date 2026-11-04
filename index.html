@@ -34,20 +34,20 @@
 .art-stars{background:linear-gradient(145deg,#e9e5f1,#dcd8eb)}
 @media(min-width:620px){.memory-art-grid{gap:20px}.memory-art{min-height:215px}}
 
-/* Interactive 3D birthday world */
-.world-shell{background:linear-gradient(160deg,#f7e9e4,#f6eee3 52%,#e9e9df);border:1px solid #eadbd2;border-radius:30px;padding:22px 14px 18px;overflow:hidden;box-shadow:0 20px 55px #59474410}
-.world-frame{height:min(68vh,540px);min-height:340px;position:relative;border-radius:22px;overflow:hidden;background:linear-gradient(#25233a,#57445c 52%,#c18c78)}
-.world-frame canvas{display:block;width:100%;height:100%;touch-action:none}
-.world-caption{position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}
-.world-chip{background:#fffaf0d9;border:1px solid #ffffff8a;color:#594744;border-radius:99px;padding:6px 10px;font-size:.68rem;backdrop-filter:blur(8px)}
-.world-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:16px}
-.world-controls .btn{font-size:.82rem;padding:11px 15px}
-.world-help{font-size:.78rem;color:#796c65;max-width:470px;margin:14px auto 0}
-.world-status{min-height:25px;font:1rem Georgia,serif;color:#8a6260;margin-top:10px}
-.world-start{display:inline-flex;align-items:center;gap:8px;margin-top:18px}
-@media(max-width:420px){.world-shell{padding:15px 10px}.world-frame{min-height:320px;height:58vh}.world-controls .btn{padding:10px 12px;font-size:.76rem}}
-@media(prefers-reduced-motion:reduce){.world-frame canvas{touch-action:pan-y}}
 
+/* Personal birthday celebration scene */
+.world-shell{background:linear-gradient(160deg,#fff5ef,#f8e8e5 55%,#eee9f0);border:1px solid #eadbd2;border-radius:30px;padding:22px 14px 18px;overflow:hidden;box-shadow:0 20px 55px #59474410}
+.world-frame{height:min(68vh,540px);min-height:350px;position:relative;border-radius:22px;overflow:hidden;background:linear-gradient(#a9b8d2 0%,#f5c9c1 58%,#f4dfd0 100%)}
+.world-frame canvas{display:block;width:100%;height:100%;touch-action:pan-y}
+.world-caption{position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}
+.world-chip{background:#fffaf0df;border:1px solid #ffffffa0;color:#594744;border-radius:99px;padding:6px 10px;font-size:.68rem;backdrop-filter:blur(8px)}
+.world-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:16px}
+.world-controls .btn{font-size:.86rem;padding:12px 17px}
+.world-help{font-size:.78rem;color:#796c65;max-width:470px;margin:12px auto 0}
+.world-status{min-height:29px;font:1.05rem Georgia,serif;color:#8a6260;margin-top:13px}
+.world-progress{height:5px;background:#eadbd5;border-radius:9px;overflow:hidden;margin:8px auto 0;max-width:330px}
+.world-progress span{display:block;width:0;height:100%;background:#c98786;transition:width .55s ease}
+@media(max-width:420px){.world-shell{padding:15px 10px}.world-frame{min-height:320px;height:56vh}.world-controls .btn{padding:10px 13px;font-size:.78rem}}
 </style>
 </head>
 <body>
@@ -149,22 +149,23 @@
 <p class="tiny" style="margin-top:18px">Ye sirf ek invitation hai. Koi answer expected nahi hai, aur tumhara har choice okay hai.</p>
 </div></section>
 
+
 <section class="section center" id="magic-world"><div class="wrap">
-<div class="eyebrow">Tumhare liye ek chhoti si magical duniya</div>
-<h2 class="serif">A little world<br>made of wishes ✨</h2>
-<p class="muted">Isha, is chhoti si 3D duniya mein thoda ghoomo. Diyas roshan karo aur apne haathon se rangoli banao.</p>
+<div class="eyebrow">Sirf tum dono ka birthday moment</div>
+<h2 class="serif">Our little<br>birthday celebration 🎂</h2>
+<p class="muted">Isha, ab birthday party mein sirf tum aur main. Har moment ko button dabakar saath mein complete karo. ♡</p>
 <div class="world-shell">
-<div class="world-frame" id="birthdayWorld" aria-label="Interactive 3D birthday garden with two friendly avatars, diyas and lanterns">
-<div class="world-caption"><span class="world-chip">🌷 Isha's little world</span><span class="world-chip">Hold to draw · Explore</span></div>
-<div id="worldFallback" class="hidden" style="position:absolute;inset:0;display:grid;place-items:center;color:#fffaf0;text-align:center;padding:25px">Is device par 3D view load nahi ho paaya. Koi baat nahi — tumhari wishes yahin hain. ♡</div>
+<div class="world-frame" id="birthdayWorld" aria-label="Interactive 3D birthday celebration with two friends, birthday cake, candles and balloons">
+<div class="world-caption"><span class="world-chip">♡ You + Isha</span><span class="world-chip">A little birthday memory</span></div>
+<div id="worldFallback" class="hidden" style="position:absolute;inset:0;display:grid;place-items:center;color:#fffaf0;text-align:center;padding:25px">3D view abhi load nahi ho paaya, lekin birthday wishes yahin hain. ♡</div>
 </div>
 <div class="world-controls">
-<button class="btn rose" type="button" id="lightDiyas">🪔 Light the diyas</button>
-<button class="btn light" type="button" id="rangoliMode" aria-pressed="false">🎨 Rangoli draw karo</button>
-<button class="btn light" type="button" id="worldReset">↻ Reset world</button>
+<button class="btn rose" type="button" id="birthdayNext">🕯️ Candles jalao</button>
+<button class="btn light" type="button" id="birthdayReset">↻ Celebration dobara</button>
 </div>
-<div class="world-status" id="worldStatus" aria-live="polite">Ek diya roshan karo, Isha. ♡</div>
-<p class="world-help">Rangoli ke liye button dabao, phir 3D ground par finger ya mouse se hold karke draw karo. Screen ko drag karke duniya explore kar sakti ho.</p>
+<div class="world-status" id="worldStatus" aria-live="polite">Ready? Pehle cake ki candles jalate hain! ✨</div>
+<div class="world-progress" aria-label="Birthday celebration progress"><span id="birthdayProgress"></span></div>
+<p class="world-help" id="birthdayHint">Har step ke baad next button dabana. Last mein balloons pop karenge! 🎈</p>
 </div>
 </div></section>
 
@@ -218,128 +219,93 @@ Mera jawab: '+value+'
 Is chhote se birthday surprise ke liye thank you!';const url='https://wa.me/918604958587?text='+encodeURIComponent(msg);const link=document.getElementById('sendWhatsApp');link.href=url;link.classList.add('ready');link.setAttribute('aria-disabled','false')}
 </script>
 
+
 <script type="module">
-try {
-  const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
-  const host=document.getElementById('birthdayWorld');
-  const status=document.getElementById('worldStatus');
-  const fallback=document.getElementById('worldFallback');
-  const scene=new THREE.Scene();
-  scene.background=new THREE.Color(0x29243c);
-  scene.fog=new THREE.Fog(0x29243c,17,39);
-  const camera=new THREE.PerspectiveCamera(48,host.clientWidth/host.clientHeight,.1,100);
-  camera.position.set(0,6.4,14.5);
-  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.65));
-  renderer.setSize(host.clientWidth,host.clientHeight);
-  renderer.shadowMap.enabled=true;
-  renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-  renderer.outputColorSpace=THREE.SRGBColorSpace;
-  host.prepend(renderer.domElement);
-  scene.add(new THREE.HemisphereLight(0xffe5d0,0x4c405d,2.1));
-  const moon=new THREE.DirectionalLight(0xffd7b0,2.2);moon.position.set(-5,10,7);moon.castShadow=true;scene.add(moon);
-  const ground=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshStandardMaterial({color:0x55465a,roughness:.94}));
-  ground.rotation.x=-Math.PI/2;ground.position.y=-.06;ground.receiveShadow=true;scene.add(ground);
-  const path=new THREE.Mesh(new THREE.PlaneGeometry(5,35),new THREE.MeshStandardMaterial({color:0xb78d83,roughness:1}));
-  path.rotation.x=-Math.PI/2;path.position.set(0,.005,-5);scene.add(path);
-  const warmColors=[0xffc66b,0xff8f9e,0x9bd8cf,0xd7a8ff,0xffe9a3];
-  const diyas=[];
-  function box(w,h,d,color,x,y,z){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),new THREE.MeshStandardMaterial({color,roughness:.85}));m.position.set(x,y,z);m.castShadow=true;m.receiveShadow=true;scene.add(m);return m}
-  // Festive Indian street facades
-  for(let side of [-1,1]){
-    for(let i=0;i<5;i++){
-      const z=-13+i*5.4;
-      const height=3.2+(i%2)*1.1;
-      box(3.4,height,3.8,side<0?0x795a69:0x6c596d,side*5.4,height/2,z);
-      for(let row=0;row<2;row++) for(let col=0;col<2;col++){
-        const win=box(.62,.88,.08,0xffcf83,side*5.4+(col-.5)*1.25,1.05+row*1.45,z+1.94);
-        win.material.emissive=new THREE.Color(0xffa94d);win.material.emissiveIntensity=.35;
-      }
-      // little roof awning
-      const aw=box(3.65,.14,.65,0xc78683,side*5.4,height+.08,z+1.65);aw.rotation.x=-.12;
-    }
-  }
-  // overhead strings and festive lanterns
-  for(let line=0;line<3;line++){
-    const points=[new THREE.Vector3(-8,6-line*.35,-11+line*6),new THREE.Vector3(0,5.2-line*.35,-9+line*6),new THREE.Vector3(8,6-line*.35,-11+line*6)];
-    const curve=new THREE.QuadraticBezierCurve3(...points);
-    scene.add(new THREE.Mesh(new THREE.TubeGeometry(curve,30,.025,5,false),new THREE.MeshStandardMaterial({color:0xffd79a})));
-    for(let j=0;j<7;j++){
-      const p=curve.getPoint(j/6);
-      const lantern=new THREE.Group();
-      const body=new THREE.Mesh(new THREE.SphereGeometry(.24,12,10),new THREE.MeshStandardMaterial({color:warmColors[(j+line)%warmColors.length],emissive:warmColors[(j+line)%warmColors.length],emissiveIntensity:.65}));
-      body.scale.y=1.25;lantern.add(body);
-      const cap=new THREE.Mesh(new THREE.ConeGeometry(.23,.22,8),new THREE.MeshStandardMaterial({color:0xffd79a}));cap.position.y=.34;lantern.add(cap);
-      lantern.position.copy(p);scene.add(lantern);
-      const glow=new THREE.PointLight(warmColors[(j+line)%warmColors.length],.45,3);glow.position.copy(p);scene.add(glow);
-    }
-  }
-  // trees and flowers along the path
-  for(let side of [-1,1]) for(let i=0;i<7;i++){
-    const z=-15+i*4.7;
-    const trunk=new THREE.Mesh(new THREE.CylinderGeometry(.12,.18,1.4,7),new THREE.MeshStandardMaterial({color:0x674b48}));trunk.position.set(side*(2.8+(i%2)*.4),.7,z);scene.add(trunk);
-    const crown=new THREE.Mesh(new THREE.SphereGeometry(.78,12,10),new THREE.MeshStandardMaterial({color:i%2?0x66866d:0x8a9b73,roughness:1}));crown.position.set(side*(2.8+(i%2)*.4),1.75,z);crown.scale.y=1.1;scene.add(crown);
-    for(let k=0;k<3;k++){const flower=new THREE.Mesh(new THREE.SphereGeometry(.12,8,8),new THREE.MeshStandardMaterial({color:k%2?0xf4b5c2:0xffdf9d,emissive:0x3b1c25}));flower.position.set(side*(2.8+(i%2)*.4)+(k-1)*.28,1.8+(k%2)*.25,z+.55);scene.add(flower)}
-  }
-  // diyas: small clay bowls with controllable warm flames
-  for(let i=0;i<9;i++){
-    const x=(i%2?1:-1)*(1.15+(i%3)*.38),z=-10+Math.floor(i/2)*4.2;
-    const bowl=new THREE.Mesh(new THREE.SphereGeometry(.32,16,10,0,Math.PI*2,0,Math.PI/2),new THREE.MeshStandardMaterial({color:0xb76d4d,roughness:.7}));bowl.rotation.x=Math.PI;bowl.position.set(x,.09,z);scene.add(bowl);
-    const flame=new THREE.Mesh(new THREE.ConeGeometry(.105,.38,9),new THREE.MeshStandardMaterial({color:0xffc15d,emissive:0xff7b28,emissiveIntensity:1.6,transparent:true,opacity:0}));flame.position.set(x,.32,z);scene.add(flame);
-    const light=new THREE.PointLight(0xffa94d,0,3.8);light.position.set(x,.55,z);scene.add(light);
-    diyas.push({flame,light});
-  }
-  // two friendly stylized avatars walking together
-  function avatar(x,shirt,hair,offset){
-    const g=new THREE.Group();g.position.set(x,0,2.4+offset);
-    const skin=new THREE.MeshStandardMaterial({color:0xc98f76,roughness:.8});
-    const clothes=new THREE.MeshStandardMaterial({color:shirt,roughness:.8});
-    const hairMat=new THREE.MeshStandardMaterial({color:hair,roughness:1});
-    const body=new THREE.Mesh(new THREE.CapsuleGeometry(.34,.78,4,8),clothes);body.position.y=1.05;body.castShadow=true;g.add(body);
-    const head=new THREE.Mesh(new THREE.SphereGeometry(.31,16,12),skin);head.position.y=1.82;head.castShadow=true;g.add(head);
-    const hairCap=new THREE.Mesh(new THREE.SphereGeometry(.32,14,10,0,Math.PI*2,0,Math.PI*.56),hairMat);hairCap.position.set(0,1.94,0);g.add(hairCap);
-    const eyeMat=new THREE.MeshStandardMaterial({color:0x493331});
-    for(let e of [-.105,.105]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.027,8,8),eyeMat);eye.position.set(e,1.83,.282);g.add(eye)}
-    for(let s of [-1,1]){const arm=new THREE.Mesh(new THREE.CapsuleGeometry(.095,.48,3,7),clothes);arm.position.set(s*.39,1.12,0);arm.rotation.z=s*.22;g.add(arm);const leg=new THREE.Mesh(new THREE.CapsuleGeometry(.11,.46,3,7),new THREE.MeshStandardMaterial({color:0x554b58}));leg.position.set(s*.15,.38,0);g.add(leg)}
-    scene.add(g);return g;
-  }
-  const friends=[avatar(-.48,0xc9879a,0x49343a,0),avatar(.48,0x718f83,0x302d37,.1)];
-  // glowing central birthday flower
-  const bloom=new THREE.Group();bloom.position.set(0,.1,-15);
-  const stem=new THREE.Mesh(new THREE.CylinderGeometry(.045,.07,1.3,8),new THREE.MeshStandardMaterial({color:0x6d9876}));stem.position.y=.65;bloom.add(stem);
-  for(let i=0;i<7;i++){const a=i*Math.PI*2/7;const petal=new THREE.Mesh(new THREE.SphereGeometry(.23,10,8),new THREE.MeshStandardMaterial({color:0xf3b8c5,emissive:0x512b40,emissiveIntensity:.2}));petal.position.set(Math.cos(a)*.25,1.35,Math.sin(a)*.25);petal.scale.set(.8,1.2,.55);petal.rotation.z=-a;bloom.add(petal)}
-  const center=new THREE.Mesh(new THREE.SphereGeometry(.18,12,10),new THREE.MeshStandardMaterial({color:0xffd98b,emissive:0xffb94f,emissiveIntensity:.8}));center.position.y=1.35;bloom.add(center);scene.add(bloom);
-  const rangoliGroup=new THREE.Group();rangoliGroup.position.y=.025;scene.add(rangoliGroup);
-  const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();
-  const drawPlane=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshBasicMaterial({visible:false}));drawPlane.rotation.x=-Math.PI/2;drawPlane.position.y=.03;scene.add(drawPlane);
-  let drawing=false,drawMode=false,lit=false,lastDraw=0,colorIndex=0;
-  const rangoliColors=[0xff8ba7,0xffd36e,0x9bd8c4,0xb99be8,0xfff0cf];
-  function drawAt(ev){
-    const rect=renderer.domElement.getBoundingClientRect();pointer.x=((ev.clientX-rect.left)/rect.width)*2-1;pointer.y=-((ev.clientY-rect.top)/rect.height)*2+1;raycaster.setFromCamera(pointer,camera);
-    const hit=raycaster.intersectObject(drawPlane)[0];if(!hit)return;
-    const dot=new THREE.Mesh(new THREE.CircleGeometry(.13,14),new THREE.MeshBasicMaterial({color:rangoliColors[colorIndex++%rangoliColors.length],side:THREE.DoubleSide}));dot.rotation.x=-Math.PI/2;dot.position.set(hit.point.x,.045,hit.point.z);rangoliGroup.add(dot);
-    if(rangoliGroup.children.length>600)rangoliGroup.remove(rangoliGroup.children[0]);
-  }
-  renderer.domElement.addEventListener('pointerdown',e=>{if(drawMode){drawing=true;drawAt(e);renderer.domElement.setPointerCapture(e.pointerId)}});
-  renderer.domElement.addEventListener('pointermove',e=>{if(drawing)drawAt(e)});
-  renderer.domElement.addEventListener('pointerup',()=>drawing=false);
-  renderer.domElement.addEventListener('pointercancel',()=>drawing=false);
-  document.getElementById('rangoliMode').addEventListener('click',e=>{drawMode=!drawMode;e.currentTarget.setAttribute('aria-pressed',String(drawMode));e.currentTarget.textContent=drawMode?'✋ Rangoli mode ON':'🎨 Rangoli draw karo';status.textContent=drawMode?'Ab ground par hold karke apni rangoli banao. 🌸':'Rangoli mode band hai. Duniya explore karo.'});
-  document.getElementById('lightDiyas').addEventListener('click',()=>{lit=!lit;diyas.forEach((d,i)=>{d.flame.material.opacity=lit?1:0;d.light.intensity=lit?1.4:0});status.textContent=lit?'Saare diyas roshan ho gaye — just like your smile, Isha. 🪔':'Diyas ko phir se roshan kar sakti ho.';});
-  document.getElementById('worldReset').addEventListener('click',()=>{rangoliGroup.clear();lit=false;drawMode=false;diyas.forEach(d=>{d.flame.material.opacity=0;d.light.intensity=0});const b=document.getElementById('rangoliMode');b.setAttribute('aria-pressed','false');b.textContent='🎨 Rangoli draw karo';status.textContent='Duniya reset ho gayi. Ek nayi rangoli banao! ♡'});
-  let angle=0,elevation=6.4,orbiting=false,lastPX=0,lastPY=0;
-  renderer.domElement.addEventListener('pointerdown',e=>{if(!drawMode){orbiting=true;lastPX=e.clientX;lastPY=e.clientY;renderer.domElement.setPointerCapture(e.pointerId)}});
-  renderer.domElement.addEventListener('pointermove',e=>{if(orbiting){angle-=(e.clientX-lastPX)*.006;elevation=Math.max(4.7,Math.min(9,elevation+(e.clientY-lastPY)*.018));lastPX=e.clientX;lastPY=e.clientY}});
-  renderer.domElement.addEventListener('pointerup',()=>orbiting=false);
-  renderer.domElement.addEventListener('pointercancel',()=>orbiting=false);
-  function animate(t){requestAnimationFrame(animate);const time=t*.001;friends.forEach((g,i)=>{g.position.y=Math.sin(time*2+i)*.035;g.rotation.y=Math.sin(time*.7+i)*.06});bloom.rotation.y=Math.sin(time*.35)*.2;camera.position.set(Math.sin(angle)*14.5,elevation,Math.cos(angle)*14.5);camera.lookAt(0,1.1,-2.2);renderer.render(scene,camera)}
-  requestAnimationFrame(animate);
-  const resize=()=>{const w=host.clientWidth,h=host.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h)};
-  new ResizeObserver(resize).observe(host);
-} catch(err) {
-  const f=document.getElementById('worldFallback');if(f)f.classList.remove('hidden');
-  const s=document.getElementById('worldStatus');if(s)s.textContent='3D view is unavailable right now, but all your birthday wishes are still here. ♡';
-}
+try{
+ const THREE=await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
+ const host=document.getElementById('birthdayWorld'),status=document.getElementById('worldStatus'),fallback=document.getElementById('worldFallback');
+ const scene=new THREE.Scene();scene.background=new THREE.Color(0xe9c9c8);scene.fog=new THREE.Fog(0xe9c9c8,18,34);
+ const camera=new THREE.PerspectiveCamera(43,host.clientWidth/host.clientHeight,.1,100);camera.position.set(0,5.1,12.8);camera.lookAt(0,1.35,0);
+ const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.setSize(host.clientWidth,host.clientHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.shadowMap.enabled=true;host.prepend(renderer.domElement);
+ scene.add(new THREE.HemisphereLight(0xfff0e9,0x77708b,2.1));const key=new THREE.DirectionalLight(0xffe2ce,2.6);key.position.set(-4,9,7);key.castShadow=true;scene.add(key);
+ const fill=new THREE.PointLight(0xffc5b4,1.4,18);fill.position.set(0,4,1);scene.add(fill);
+ const mat=(color,roughness=.8,emissive=0)=>new THREE.MeshStandardMaterial({color,roughness,emissive,emissiveIntensity:emissive?0.25:0});
+ const floor=new THREE.Mesh(new THREE.PlaneGeometry(60,60),mat(0xf4dfd6));floor.rotation.x=-Math.PI/2;floor.position.y=-.04;floor.receiveShadow=true;scene.add(floor);
+ const wall=new THREE.Mesh(new THREE.PlaneGeometry(30,14),mat(0xf0d7d8));wall.position.set(0,5,-5);scene.add(wall);
+ // soft birthday backdrop: bunting, stars and paper decorations, not a festival street
+ for(let i=0;i<9;i++){const x=-5.2+i*1.3;const tri=new THREE.Mesh(new THREE.ConeGeometry(.38,.62,3),mat([0xf6a8b6,0xf5d18b,0xa8c8bd,0xb9a9d8][i%4]));tri.rotation.z=Math.PI;tri.position.set(x,4.25,-4.82);scene.add(tri)}
+ const bannerCurve=new THREE.QuadraticBezierCurve3(new THREE.Vector3(-5.5,4.65,-4.8),new THREE.Vector3(0,3.8,-4.8),new THREE.Vector3(5.5,4.65,-4.8));scene.add(new THREE.Mesh(new THREE.TubeGeometry(bannerCurve,36,.025,6,false),mat(0xfff3e6)));
+ const stars=[];for(let i=0;i<24;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.035+(i%3)*.018,8,8),mat(i%2?0xfff6d9:0xffffff,1));s.position.set(-5.5+(i*2.31%11),2.1+(i*1.73%3.3),-4.7);scene.add(s);stars.push(s)}
+ // cake stand and three-layer birthday cake
+ const cakeGroup=new THREE.Group();cakeGroup.position.set(0,0,-.85);scene.add(cakeGroup);
+ function cyl(rt,rb,h,color,y,group=cakeGroup){const m=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,48),mat(color,.55));m.position.y=y;m.castShadow=true;m.receiveShadow=true;group.add(m);return m}
+ cyl(1.55,1.62,.22,0xd7a9a1,.16);cyl(1.12,1.12,.55,0xf2b8b2,.53);cyl(1.15,1.15,.13,0xffe9dc,.87);cyl(.86,.86,.48,0xf4d3a9,1.16);cyl(.9,.9,.11,0xfff0dd,1.46);
+ const frostingDrips=[];for(let i=0;i<12;i++){const a=i*Math.PI/6;const d=new THREE.Mesh(new THREE.SphereGeometry(.12,10,8),mat(0xfff0df));d.scale.set(.8,1.6,.8);d.position.set(Math.cos(a)*.9,1.39,Math.sin(a)*.9);cakeGroup.add(d);frostingDrips.push(d)}
+ for(let i=0;i<10;i++){const a=i*Math.PI*2/10;const berry=new THREE.Mesh(new THREE.SphereGeometry(.09,12,10),mat(i%2?0xc65c70:0x8c536f));berry.position.set(Math.cos(a)*.59,1.57,Math.sin(a)*.59);cakeGroup.add(berry)}
+ const candleFlames=[],candles=[];
+ for(let i=0;i<5;i++){const x=(i-2)*.29;const stick=new THREE.Mesh(new THREE.CylinderGeometry(.045,.05,.43,12),mat([0xf4a5b4,0x9bc7bb,0xf1cb7e,0xb7a8d8,0xf4a5b4][i]));stick.position.set(x,1.84,0);cakeGroup.add(stick);candles.push(stick);
+ const flame=new THREE.Mesh(new THREE.SphereGeometry(.09,12,10),new THREE.MeshStandardMaterial({color:0xffd36b,emissive:0xff9c35,emissiveIntensity:1.8,transparent:true,opacity:0}));flame.scale.set(.72,1.5,.72);flame.position.set(x,2.12,0);cakeGroup.add(flame);const glow=new THREE.PointLight(0xffa94d,0,2);glow.position.copy(flame.position);cakeGroup.add(glow);candleFlames.push({flame,glow})}
+ // little cake topper
+ const topper=new THREE.Mesh(new THREE.TorusGeometry(.18,.035,8,24),mat(0xffd58d));topper.position.set(0,2.03,.02);topper.rotation.x=Math.PI/2;cakeGroup.add(topper);
+ // two friendly cartoon people, side-by-side, facing the cake
+ function person(x,shirt,hair,skirtColor){
+  const root=new THREE.Group();root.position.set(x,0,1.75);scene.add(root);
+  const skin=mat(0xc98f76),cloth=mat(shirt),hairMat=mat(hair),dark=mat(0x493331);
+  const torso=new THREE.Mesh(new THREE.CapsuleGeometry(.34,.78,5,12),cloth);torso.position.y=1.12;torso.castShadow=true;root.add(torso);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(.37,20,16),skin);head.position.y=2.02;head.castShadow=true;root.add(head);
+  const cap=new THREE.Mesh(new THREE.SphereGeometry(.39,18,12,0,Math.PI*2,0,Math.PI*.57),hairMat);cap.position.set(0,2.17,0);root.add(cap);
+  const fringe=new THREE.Mesh(new THREE.SphereGeometry(.18,12,8),hairMat);fringe.scale.set(1.8,.65,.65);fringe.position.set(0,2.15,.27);root.add(fringe);
+  for(const ex of [-.13,.13]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.035,10,8),dark);eye.position.set(ex,2.04,.34);root.add(eye)}
+  const smile=new THREE.Mesh(new THREE.TorusGeometry(.075,.014,6,14,Math.PI),mat(0x8e5555));smile.position.set(0,1.91,.34);smile.rotation.z=Math.PI;root.add(smile);
+  const legs=[];for(const lx of [-.16,.16]){const leg=new THREE.Mesh(new THREE.CapsuleGeometry(.12,.52,4,8),mat(0x625766));leg.position.set(lx,.43,0);root.add(leg);legs.push(leg)}
+  const arms=[];for(const side of [-1,1]){const pivot=new THREE.Group();pivot.position.set(side*.36,1.55,0);const arm=new THREE.Mesh(new THREE.CapsuleGeometry(.105,.55,4,8),cloth);arm.position.set(side*.1,-.28,.02);arm.rotation.z=side*.2;pivot.add(arm);root.add(pivot);arms.push(pivot)}
+  const handProps=[];for(const side of [-1,1]){const hand=new THREE.Mesh(new THREE.SphereGeometry(.11,10,8),skin);hand.position.set(side*.48,1.22,.08);root.add(hand);handProps.push(hand)}
+  return {root,arms,legs,torso,head};
+ }
+ const you=person(-2.05,0x7898a7,0x342e35),isha=person(2.05,0xc9879a,0x49343a);
+ // balloon bunches with strings and independently poppable shells
+ const balloonColors=[0xf08ca2,0x9ac9c0,0xf4ce7d,0xb5a5d8,0xf3a88d,0x91b7d4,0xf2c1d0,0xa7c6a1];
+ const balloons=[];
+ for(let i=0;i<8;i++){const side=i<4?-1:1,j=i%4;const group=new THREE.Group();group.position.set(side*(3.7+j*.28),2.3+j*.55,-.1-j*.35);const shell=new THREE.Mesh(new THREE.SphereGeometry(.37,18,14),mat(balloonColors[i],.35));shell.scale.set(.86,1.08,.86);group.add(shell);const knot=new THREE.Mesh(new THREE.ConeGeometry(.08,.14,8),mat(balloonColors[i]));knot.position.y=-.39;knot.rotation.x=Math.PI;group.add(knot);const string=new THREE.Mesh(new THREE.CylinderGeometry(.008,.008,.75,5),mat(0xffffff));string.position.y=-.78;group.add(string);scene.add(group);balloons.push({group,shell,popped:false,baseY:group.position.y,phase:i*.8})}
+ // knife prop and slice
+ const knife=new THREE.Group();const blade=new THREE.Mesh(new THREE.BoxGeometry(.06,.52,.19),mat(0xcbd4da,.25));blade.position.y=.26;knife.add(blade);const handle=new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,.28,10),mat(0x9a6a55));handle.position.y=-.13;knife.add(handle);knife.position.set(.72,3,-.55);knife.rotation.z=-.45;scene.add(knife);knife.visible=false;
+ const slice=new THREE.Group();const sliceBase=new THREE.Mesh(new THREE.CylinderGeometry(.38,.42,.44,3,1,false,Math.PI/6),mat(0xf2b8b2));sliceBase.rotation.y=Math.PI/6;slice.add(sliceBase);const sliceTop=new THREE.Mesh(new THREE.CylinderGeometry(.3,.35,.08,3),mat(0xffe9dc));sliceTop.position.y=.26;sliceTop.rotation.y=Math.PI/6;slice.add(sliceTop);slice.position.set(0,1.5,-.85);scene.add(slice);slice.visible=false;
+ // cake bites fly between the two people
+ const bite=new THREE.Group();const biteCake=new THREE.Mesh(new THREE.SphereGeometry(.16,12,10),mat(0xf1b6ad));bite.add(biteCake);const biteCream=new THREE.Mesh(new THREE.SphereGeometry(.09,10,8),mat(0xfff0df));biteCream.position.y=.1;bite.add(biteCream);scene.add(bite);bite.visible=false;
+ const particles=new THREE.Group();scene.add(particles);
+ function burstAt(pos,color,count=22){for(let i=0;i<count;i++){const p=new THREE.Mesh(new THREE.SphereGeometry(.035+Math.random()*.035,7,6),new THREE.MeshBasicMaterial({color}));p.position.copy(pos);p.userData.velocity=new THREE.Vector3((Math.random()-.5)*.13,Math.random()*.16+.04,(Math.random()-.5)*.13);p.userData.life=1.1;particles.add(p)}}
+ let step=0,anim=null,elapsed=0;const next=document.getElementById('birthdayNext'),progress=document.getElementById('birthdayProgress'),hint=document.getElementById('birthdayHint');
+ const labels=['🕯️ Candles jalao','💨 Candles bujhao','🔪 Cake cut karo','🍰 Isha ko cake khilao','🎈 Balloons phodo','♡ Celebration complete'];
+ const lines=['Ready? Pehle cake ki candles jalate hain! ✨','Wish maango… ab dono milkar candles blow karo! 💨','Yay! Ab saath mein cake cut karte hain. 🎂','Ab tum Isha ko cake khilao… kitna cute moment! ♡','Ab Isha tumhe cake khilayegi. 🍰','Last round! Dono milkar balloons pop karo! 🎈','Happy Birthday, Isha! Ye moment tum dono ke naam. ❤️'];
+ function setStepText(){next.textContent=labels[Math.min(step,5)];status.textContent=lines[step];progress.style.width=(step/5*100)+'%';hint.textContent=step===0?'Button dabao aur dono milkar candles roshan karo.':step===1?'Ab wish maango aur candles bujhao.':step===2?'Cake cutting animation ke liye ready?':step===3?'Cake ka pehla bite Isha ke liye.':step===4?'Ab Isha tumhe cake khilayegi.':step===5?'Balloons par tap karo ya button dabao — pop!':'Birthday memory complete. Dobara celebrate kar sakte ho. ♡'}
+ function poseArms(up){[you,isha].forEach((p,i)=>{p.arms[0].rotation.z=up?-.95:0;p.arms[1].rotation.z=up?.95:0})}
+ function lightCandles(){candleFlames.forEach(o=>{o.flame.material.opacity=1;o.glow.intensity=1.2});poseArms(true);fill.intensity=2.3;burstAt(new THREE.Vector3(0,2.2,-.85),0xffd36b,18)}
+ function blowCandles(){candleFlames.forEach(o=>{o.flame.material.opacity=0;o.glow.intensity=0});poseArms(false);for(let i=0;i<7;i++)burstAt(new THREE.Vector3((Math.random()-.5)*1.3,2.1,-.85),0xffffff,3);status.textContent='Wish maang li? Candles bujh gayi! ✨'}
+ function cutCake(){knife.visible=true;anim={type:'knife',t:0};slice.visible=true;poseArms(true)}
+ function feed(toIsha){bite.visible=true;bite.position.set(toIsha?-1.5:1.5,1.85,1.4);anim={type:toIsha?'feedIsha':'feedYou',t:0};poseArms(true)}
+ function popBalloons(){const remaining=balloons.filter(b=>!b.popped);if(!remaining.length){status.textContent='Saare balloons pop ho gaye! Happy Birthday! 🎉';burstAt(new THREE.Vector3(0,3,0),0xffd36b,65);return}const b=remaining[0];b.popped=true;burstAt(b.group.position,balloonColors[balloons.indexOf(b)],28);b.group.visible=false;status.textContent='Pop! Ek aur balloon gaya! 🎈';if(balloons.every(b=>b.popped)){burstAt(new THREE.Vector3(0,3,0),0xffd36b,70);status.textContent='Saare balloons pop! Tum dono ki celebration complete! ❤️'}}
+ function advance(){if(step===0)lightCandles();else if(step===1)blowCandles();else if(step===2)cutCake();else if(step===3)feed(true);else if(step===4)feed(false);else if(step===5){for(let i=0;i<balloons.length;i++)setTimeout(()=>{const b=balloons[i];if(!b.popped){b.popped=true;burstAt(b.group.position,balloonColors[i],26);b.group.visible=false}},i*160);setTimeout(()=>burstAt(new THREE.Vector3(0,3,0),0xffd36b,75),1400)}
+ if(step<6)step++;setStepText();if(step===6){status.textContent=lines[6];next.textContent='🎉 Celebrate again';progress.style.width='100%'}}
+ next.addEventListener('click',()=>{if(step===6){reset();return}advance()});
+ document.getElementById('birthdayReset').addEventListener('click',reset);
+ function reset(){step=0;anim=null;elapsed=0;poseArms(false);candleFlames.forEach(o=>{o.flame.material.opacity=0;o.glow.intensity=0});knife.visible=false;slice.visible=false;bite.visible=false;balloons.forEach(b=>{b.popped=false;b.group.visible=true});particles.clear();fill.intensity=1.4;setStepText()}
+ setStepText();
+ // Tap an individual balloon during the balloon stage.
+ const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();
+ renderer.domElement.addEventListener('pointerdown',e=>{if(step!==5)return;const r=renderer.domElement.getBoundingClientRect();pointer.x=(e.clientX-r.left)/r.width*2-1;pointer.y=-(e.clientY-r.top)/r.height*2+1;raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(balloons.filter(b=>!b.popped).map(b=>b.shell));if(hits.length){const b=balloons.find(b=>b.shell===hits[0].object);if(b){b.popped=true;burstAt(b.group.position,balloonColors[balloons.indexOf(b)],28);b.group.visible=false;if(balloons.every(v=>v.popped))status.textContent='Saare balloons pop! Tum dono ki celebration complete! ❤️'}}});
+ function animate(){requestAnimationFrame(animate);const t=performance.now()*.001;
+  stars.forEach((s,i)=>{s.scale.setScalar(.8+Math.sin(t*2+i)*.15)});
+  balloons.forEach(b=>{if(!b.popped)b.group.position.y=b.baseY+Math.sin(t*1.3+b.phase)*.12});
+  [you,isha].forEach((p,i)=>{p.root.position.y=Math.sin(t*2+i)*.025;p.root.rotation.y=Math.sin(t*.7+i)*.035});
+  candleFlames.forEach((o,i)=>{if(o.flame.material.opacity>0)o.flame.scale.y=1.5+Math.sin(t*13+i)*.22});
+  if(anim){anim.t+=.025;if(anim.type==='knife'){knife.position.y=3- Math.min(1,anim.t)*1.2;if(anim.t>1.2){knife.visible=false;anim=null;cakeGroup.rotation.y=.025;burstAt(new THREE.Vector3(0,1.7,-.85),0xffe2a4,16)}}else{const toIsha=anim.type==='feedIsha';const target=new THREE.Vector3(toIsha?1.75:-1.75,1.85,1.4);const start=new THREE.Vector3(toIsha?-1.5:1.5,1.85,1.4);const k=Math.min(1,anim.t);bite.position.lerpVectors(start,target,k);bite.position.y+=Math.sin(k*Math.PI)*.6;if(k>=1){bite.visible=false;anim=null;burstAt(target,0xffd6ad,10)}}}
+  particles.children.forEach(p=>{p.position.add(p.userData.velocity);p.userData.velocity.y-=.003;p.userData.life-=.018;p.scale.multiplyScalar(.985);if(p.userData.life<=0){particles.remove(p);p.geometry.dispose();p.material.dispose()}});
+  renderer.render(scene,camera)
+ }
+ animate();
+ const resize=()=>{const w=host.clientWidth,h=host.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h)};new ResizeObserver(resize).observe(host);
+}catch(err){const f=document.getElementById('worldFallback');if(f)f.classList.remove('hidden');const s=document.getElementById('worldStatus');if(s)s.textContent='3D birthday scene load nahi ho paaya. Baaki wishes yahin hain. ♡';console.error(err)}
 </script>
+
 
 </body></html>
