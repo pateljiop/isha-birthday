@@ -33,7 +33,21 @@
 .art-book{background:linear-gradient(145deg,#e9eee3,#dce7d8)}
 .art-stars{background:linear-gradient(145deg,#e9e5f1,#dcd8eb)}
 @media(min-width:620px){.memory-art-grid{gap:20px}.memory-art{min-height:215px}}
-</style>
+
+/* Interactive 3D birthday world */
+.world-shell{background:linear-gradient(160deg,#f7e9e4,#f6eee3 52%,#e9e9df);border:1px solid #eadbd2;border-radius:30px;padding:22px 14px 18px;overflow:hidden;box-shadow:0 20px 55px #59474410}
+.world-frame{height:min(68vh,540px);min-height:340px;position:relative;border-radius:22px;overflow:hidden;background:linear-gradient(#25233a,#57445c 52%,#c18c78)}
+.world-frame canvas{display:block;width:100%;height:100%;touch-action:none}
+.world-caption{position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}
+.world-chip{background:#fffaf0d9;border:1px solid #ffffff8a;color:#594744;border-radius:99px;padding:6px 10px;font-size:.68rem;backdrop-filter:blur(8px)}
+.world-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:16px}
+.world-controls .btn{font-size:.82rem;padding:11px 15px}
+.world-help{font-size:.78rem;color:#796c65;max-width:470px;margin:14px auto 0}
+.world-status{min-height:25px;font:1rem Georgia,serif;color:#8a6260;margin-top:10px}
+.world-start{display:inline-flex;align-items:center;gap:8px;margin-top:18px}
+@media(max-width:420px){.world-shell{padding:15px 10px}.world-frame{min-height:320px;height:58vh}.world-controls .btn{padding:10px 12px;font-size:.76rem}}
+@media(prefers-reduced-motion:reduce){.world-frame canvas{touch-action:pan-y}}
+\n</style>
 </head>
 <body>
 <div class="intro-screen" id="introScreen" role="dialog" aria-modal="true" aria-labelledby="introTitle"><div class="intro-inner"><div class="intro-seal" aria-hidden="true">💌</div><div class="eyebrow">Ek chhota sa surprise</div><h2 id="introTitle">Hey Isha,<br>ye tumhare liye hai.</h2><p>Thoda sa pyaar, dher saari smiles aur tumhare naam ek poori digital duniya. Taiyaar ho?</p><button class="btn rose" type="button" onclick="openSurprise()">Surprise kholo ♡</button><p class="tiny">Achhe experience ke liye aaram se neeche dekhna ✨</p></div></div><div class="petals" id="petals" aria-hidden="true"></div>\n<a class="skip-link" href="#birthday">Seedha birthday wishes par jao</a>
@@ -131,7 +145,26 @@
 </div>
 <p class="tiny" style="margin-top:18px">Ye sirf ek invitation hai. Koi answer expected nahi hai, aur tumhara har choice okay hai.</p>
 </div></section>
-<section class="section center" id="ending"><div class="wrap">
+
+<section class="section center" id="magic-world"><div class="wrap">
+<div class="eyebrow">Tumhare liye ek chhoti si magical duniya</div>
+<h2 class="serif">A little world<br>made of wishes ✨</h2>
+<p class="muted">Isha, is chhoti si 3D duniya mein thoda ghoomo. Diyas roshan karo aur apne haathon se rangoli banao.</p>
+<div class="world-shell">
+<div class="world-frame" id="birthdayWorld" aria-label="Interactive 3D birthday garden with two friendly avatars, diyas and lanterns">
+<div class="world-caption"><span class="world-chip">🌷 Isha's little world</span><span class="world-chip">Drag to look around</span></div>
+<div id="worldFallback" class="hidden" style="position:absolute;inset:0;display:grid;place-items:center;color:#fffaf0;text-align:center;padding:25px">Is device par 3D view load nahi ho paaya. Koi baat nahi — tumhari wishes yahin hain. ♡</div>
+</div>
+<div class="world-controls">
+<button class="btn rose" type="button" id="lightDiyas">🪔 Light the diyas</button>
+<button class="btn light" type="button" id="rangoliMode" aria-pressed="false">🎨 Rangoli draw karo</button>
+<button class="btn light" type="button" id="worldReset">↻ Reset world</button>
+</div>
+<div class="world-status" id="worldStatus" aria-live="polite">Ek diya roshan karo, Isha. ♡</div>
+<p class="world-help">Rangoli ke liye button dabao, phir 3D ground par finger ya mouse se hold karke draw karo. Screen ko drag karke duniya explore kar sakti ho.</p>
+</div>
+</div></section>
+\n<section class="section center" id="ending"><div class="wrap">
 <div class="eyebrow">Jaane se pehle</div><div style="font-size:2.5rem">✦ 🌷 ✦</div><h2 class="serif">Aise hi chamakti rehna,<br>Isha.</h2><p class="muted">Tumhe muskurane ki chhoti-chhoti wajah, sukoon dene wale log aur halke-phulke din milte rahein.</p><div class="final-surprise"><div style="font-size:2.4rem">🎁</div><div class="eyebrow">Aakhri chhota sa surprise</div><h3 class="serif" style="font-size:2rem;margin:8px 0">Ek wish aur?</h3><p class="muted">Button dabao — tumhare liye ek aakhri birthday wish aur thodi si flower baarish.</p><button class="btn rose" type="button" onclick="finalWish()">Aakhri surprise kholo ✨</button><div class="final-message" id="finalMessage" aria-live="polite">Tumhara aane wala har chapter khoobsurat ho. ♡</div></div><div class="divider"></div><p class="tiny">Dher saari wishes ke saath · 15 November 2026</p>
 </div></section>
 </main>
@@ -171,4 +204,126 @@ const picks=[];let selectedResponse='';
 function pick(step,btn){const parent=btn.parentElement;parent.querySelectorAll('.choice').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');picks[step]=btn.textContent.trim();setTimeout(()=>{document.getElementById('step'+step).classList.remove('active');if(step<2){document.getElementById('step'+(step+1)).classList.add('active');document.getElementById('stepLabel').textContent='LEVEL 0'+(step+2)+' / 03';document.getElementById('progressBar').style.width=((step+1)/3*100)+'%'}else{document.getElementById('progressBar').style.width='100%';document.getElementById('stepLabel').textContent='LEVEL POORA';document.getElementById('missionDone').classList.remove('hidden')}},220)}
 function setResponse(value,btn){selectedResponse=value;document.querySelectorAll('#responseChoices button').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');const msg='Hey! Maine tumhara chhota sa friendship mission complete kiya. 🌷\n\nMere answers:\n1. '+(picks[0]||'')+'\n2. '+(picks[1]||'')+'\n3. '+(picks[2]||'')+'\n\nMera jawab: '+value+'\n\nIs chhote se birthday surprise ke liye thank you!';const url='https://wa.me/918604958587?text='+encodeURIComponent(msg);const link=document.getElementById('sendWhatsApp');link.href=url;link.classList.add('ready');link.setAttribute('aria-disabled','false')}
 </script>
-</body></html>
+
+<script type="module">
+try {
+  const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
+  const host=document.getElementById('birthdayWorld');
+  const status=document.getElementById('worldStatus');
+  const fallback=document.getElementById('worldFallback');
+  const scene=new THREE.Scene();
+  scene.background=new THREE.Color(0x29243c);
+  scene.fog=new THREE.Fog(0x29243c,17,39);
+  const camera=new THREE.PerspectiveCamera(48,host.clientWidth/host.clientHeight,.1,100);
+  camera.position.set(0,6.4,14.5);
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.65));
+  renderer.setSize(host.clientWidth,host.clientHeight);
+  renderer.shadowMap.enabled=true;
+  renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+  renderer.outputColorSpace=THREE.SRGBColorSpace;
+  host.prepend(renderer.domElement);
+  scene.add(new THREE.HemisphereLight(0xffe5d0,0x4c405d,2.1));
+  const moon=new THREE.DirectionalLight(0xffd7b0,2.2);moon.position.set(-5,10,7);moon.castShadow=true;scene.add(moon);
+  const ground=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshStandardMaterial({color:0x55465a,roughness:.94}));
+  ground.rotation.x=-Math.PI/2;ground.position.y=-.06;ground.receiveShadow=true;scene.add(ground);
+  const path=new THREE.Mesh(new THREE.PlaneGeometry(5,35),new THREE.MeshStandardMaterial({color:0xb78d83,roughness:1}));
+  path.rotation.x=-Math.PI/2;path.position.set(0,.005,-5);scene.add(path);
+  const warmColors=[0xffc66b,0xff8f9e,0x9bd8cf,0xd7a8ff,0xffe9a3];
+  const diyas=[];
+  function box(w,h,d,color,x,y,z){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),new THREE.MeshStandardMaterial({color,roughness:.85}));m.position.set(x,y,z);m.castShadow=true;m.receiveShadow=true;scene.add(m);return m}
+  // Festive Indian street facades
+  for(let side of [-1,1]){
+    for(let i=0;i<5;i++){
+      const z=-13+i*5.4;
+      const height=3.2+(i%2)*1.1;
+      box(3.4,height,3.8,side<0?0x795a69:0x6c596d,side*5.4,height/2,z);
+      for(let row=0;row<2;row++) for(let col=0;col<2;col++){
+        const win=box(.62,.88,.08,0xffcf83,side*5.4+(col-.5)*1.25,1.05+row*1.45,z+1.94);
+        win.material.emissive=new THREE.Color(0xffa94d);win.material.emissiveIntensity=.35;
+      }
+      // little roof awning
+      const aw=box(3.65,.14,.65,0xc78683,side*5.4,height+.08,z+1.65);aw.rotation.x=-.12;
+    }
+  }
+  // overhead strings and festive lanterns
+  for(let line=0;line<3;line++){
+    const points=[new THREE.Vector3(-8,6-line*.35,-11+line*6),new THREE.Vector3(0,5.2-line*.35,-9+line*6),new THREE.Vector3(8,6-line*.35,-11+line*6)];
+    const curve=new THREE.QuadraticBezierCurve3(...points);
+    scene.add(new THREE.Mesh(new THREE.TubeGeometry(curve,30,.025,5,false),new THREE.MeshStandardMaterial({color:0xffd79a})));
+    for(let j=0;j<7;j++){
+      const p=curve.getPoint(j/6);
+      const lantern=new THREE.Group();
+      const body=new THREE.Mesh(new THREE.SphereGeometry(.24,12,10),new THREE.MeshStandardMaterial({color:warmColors[(j+line)%warmColors.length],emissive:warmColors[(j+line)%warmColors.length],emissiveIntensity:.65}));
+      body.scale.y=1.25;lantern.add(body);
+      const cap=new THREE.Mesh(new THREE.ConeGeometry(.23,.22,8),new THREE.MeshStandardMaterial({color:0xffd79a}));cap.position.y=.34;lantern.add(cap);
+      lantern.position.copy(p);scene.add(lantern);
+      const glow=new THREE.PointLight(warmColors[(j+line)%warmColors.length],.45,3);glow.position.copy(p);scene.add(glow);
+    }
+  }
+  // trees and flowers along the path
+  for(let side of [-1,1]) for(let i=0;i<7;i++){
+    const z=-15+i*4.7;
+    const trunk=new THREE.Mesh(new THREE.CylinderGeometry(.12,.18,1.4,7),new THREE.MeshStandardMaterial({color:0x674b48}));trunk.position.set(side*(2.8+(i%2)*.4),.7,z);scene.add(trunk);
+    const crown=new THREE.Mesh(new THREE.SphereGeometry(.78,12,10),new THREE.MeshStandardMaterial({color:i%2?0x66866d:0x8a9b73,roughness:1}));crown.position.set(side*(2.8+(i%2)*.4),1.75,z);crown.scale.y=1.1;scene.add(crown);
+    for(let k=0;k<3;k++){const flower=new THREE.Mesh(new THREE.SphereGeometry(.12,8,8),new THREE.MeshStandardMaterial({color:k%2?0xf4b5c2:0xffdf9d,emissive:0x3b1c25}));flower.position.set(side*(2.8+(i%2)*.4)+(k-1)*.28,1.8+(k%2)*.25,z+.55);scene.add(flower)}
+  }
+  // diyas: small clay bowls with controllable warm flames
+  for(let i=0;i<9;i++){
+    const x=(i%2?1:-1)*(1.15+(i%3)*.38),z=-10+Math.floor(i/2)*4.2;
+    const bowl=new THREE.Mesh(new THREE.SphereGeometry(.32,16,10,0,Math.PI*2,0,Math.PI/2),new THREE.MeshStandardMaterial({color:0xb76d4d,roughness:.7}));bowl.rotation.x=Math.PI;bowl.position.set(x,.09,z);scene.add(bowl);
+    const flame=new THREE.Mesh(new THREE.ConeGeometry(.105,.38,9),new THREE.MeshStandardMaterial({color:0xffc15d,emissive:0xff7b28,emissiveIntensity:1.6,transparent:true,opacity:0}));flame.position.set(x,.32,z);scene.add(flame);
+    const light=new THREE.PointLight(0xffa94d,0,3.8);light.position.set(x,.55,z);scene.add(light);
+    diyas.push({flame,light});
+  }
+  // two friendly stylized avatars walking together
+  function avatar(x,shirt,hair,offset){
+    const g=new THREE.Group();g.position.set(x,0,2.4+offset);
+    const skin=new THREE.MeshStandardMaterial({color:0xc98f76,roughness:.8});
+    const clothes=new THREE.MeshStandardMaterial({color:shirt,roughness:.8});
+    const hairMat=new THREE.MeshStandardMaterial({color:hair,roughness:1});
+    const body=new THREE.Mesh(new THREE.CapsuleGeometry(.34,.78,4,8),clothes);body.position.y=1.05;body.castShadow=true;g.add(body);
+    const head=new THREE.Mesh(new THREE.SphereGeometry(.31,16,12),skin);head.position.y=1.82;head.castShadow=true;g.add(head);
+    const hairCap=new THREE.Mesh(new THREE.SphereGeometry(.32,14,10,0,Math.PI*2,0,Math.PI*.56),hairMat);hairCap.position.set(0,1.94,0);g.add(hairCap);
+    const eyeMat=new THREE.MeshStandardMaterial({color:0x493331});
+    for(let e of [-.105,.105]){const eye=new THREE.Mesh(new THREE.SphereGeometry(.027,8,8),eyeMat);eye.position.set(e,1.83,.282);g.add(eye)}
+    for(let s of [-1,1]){const arm=new THREE.Mesh(new THREE.CapsuleGeometry(.095,.48,3,7),clothes);arm.position.set(s*.39,1.12,0);arm.rotation.z=s*.22;g.add(arm);const leg=new THREE.Mesh(new THREE.CapsuleGeometry(.11,.46,3,7),new THREE.MeshStandardMaterial({color:0x554b58}));leg.position.set(s*.15,.38,0);g.add(leg)}
+    scene.add(g);return g;
+  }
+  const friends=[avatar(-.48,0xc9879a,0x49343a,0),avatar(.48,0x718f83,0x302d37,.1)];
+  // glowing central birthday flower
+  const bloom=new THREE.Group();bloom.position.set(0,.1,-15);
+  const stem=new THREE.Mesh(new THREE.CylinderGeometry(.045,.07,1.3,8),new THREE.MeshStandardMaterial({color:0x6d9876}));stem.position.y=.65;bloom.add(stem);
+  for(let i=0;i<7;i++){const a=i*Math.PI*2/7;const petal=new THREE.Mesh(new THREE.SphereGeometry(.23,10,8),new THREE.MeshStandardMaterial({color:0xf3b8c5,emissive:0x512b40,emissiveIntensity:.2}));petal.position.set(Math.cos(a)*.25,1.35,Math.sin(a)*.25);petal.scale.set(.8,1.2,.55);petal.rotation.z=-a;bloom.add(petal)}
+  const center=new THREE.Mesh(new THREE.SphereGeometry(.18,12,10),new THREE.MeshStandardMaterial({color:0xffd98b,emissive:0xffb94f,emissiveIntensity:.8}));center.position.y=1.35;bloom.add(center);scene.add(bloom);
+  const rangoliGroup=new THREE.Group();rangoliGroup.position.y=.025;scene.add(rangoliGroup);
+  const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();
+  const drawPlane=new THREE.Mesh(new THREE.PlaneGeometry(80,80),new THREE.MeshBasicMaterial({visible:false}));drawPlane.rotation.x=-Math.PI/2;drawPlane.position.y=.03;scene.add(drawPlane);
+  let drawing=false,drawMode=false,lit=false,lastDraw=0,colorIndex=0;
+  const rangoliColors=[0xff8ba7,0xffd36e,0x9bd8c4,0xb99be8,0xfff0cf];
+  function drawAt(ev){
+    const rect=renderer.domElement.getBoundingClientRect();pointer.x=((ev.clientX-rect.left)/rect.width)*2-1;pointer.y=-((ev.clientY-rect.top)/rect.height)*2+1;raycaster.setFromCamera(pointer,camera);
+    const hit=raycaster.intersectObject(drawPlane)[0];if(!hit)return;
+    const dot=new THREE.Mesh(new THREE.CircleGeometry(.13,14),new THREE.MeshBasicMaterial({color:rangoliColors[colorIndex++%rangoliColors.length],side:THREE.DoubleSide}));dot.rotation.x=-Math.PI/2;dot.position.set(hit.point.x,.045,hit.point.z);rangoliGroup.add(dot);
+    if(rangoliGroup.children.length>600)rangoliGroup.remove(rangoliGroup.children[0]);
+  }
+  renderer.domElement.addEventListener('pointerdown',e=>{if(drawMode){drawing=true;drawAt(e);renderer.domElement.setPointerCapture(e.pointerId)}});
+  renderer.domElement.addEventListener('pointermove',e=>{if(drawing)drawAt(e)});
+  renderer.domElement.addEventListener('pointerup',()=>drawing=false);
+  renderer.domElement.addEventListener('pointercancel',()=>drawing=false);
+  document.getElementById('rangoliMode').addEventListener('click',e=>{drawMode=!drawMode;e.currentTarget.setAttribute('aria-pressed',String(drawMode));e.currentTarget.textContent=drawMode?'✋ Rangoli mode ON':'🎨 Rangoli draw karo';status.textContent=drawMode?'Ab ground par hold karke apni rangoli banao. 🌸':'Rangoli mode band hai. Duniya explore karo.'});
+  document.getElementById('lightDiyas').addEventListener('click',()=>{lit=!lit;diyas.forEach((d,i)=>{d.flame.material.opacity=lit?1:0;d.light.intensity=lit?1.4:0});status.textContent=lit?'Saare diyas roshan ho gaye — just like your smile, Isha. 🪔':'Diyas ko phir se roshan kar sakti ho.';});
+  document.getElementById('worldReset').addEventListener('click',()=>{rangoliGroup.clear();lit=false;drawMode=false;diyas.forEach(d=>{d.flame.material.opacity=0;d.light.intensity=0});const b=document.getElementById('rangoliMode');b.setAttribute('aria-pressed','false');b.textContent='🎨 Rangoli draw karo';status.textContent='Duniya reset ho gayi. Ek nayi rangoli banao! ♡'});
+  let targetX=0,targetY=0,angle=0;
+  renderer.domElement.addEventListener('pointermove',e=>{if(!drawing){targetX=(e.clientX/innerWidth-.5)*.55;targetY=(e.clientY/innerHeight-.5)*.15}});
+  let last=0;
+  function animate(t){requestAnimationFrame(animate);const time=t*.001;friends.forEach((g,i)=>{g.position.y=Math.sin(time*2+i)*.035;g.rotation.y=Math.sin(time*.7+i)*.06});bloom.rotation.y=Math.sin(time*.35)*.2;camera.position.x+=(targetX-camera.position.x*.025)*.015;camera.lookAt(0,1.1,-2.2);renderer.render(scene,camera)}
+  requestAnimationFrame(animate);
+  const resize=()=>{const w=host.clientWidth,h=host.clientHeight;camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h)};
+  new ResizeObserver(resize).observe(host);
+} catch(err) {
+  const f=document.getElementById('worldFallback');if(f)f.classList.remove('hidden');
+  const s=document.getElementById('worldStatus');if(s)s.textContent='3D view is unavailable right now, but all your birthday wishes are still here. ♡';
+}
+</script>
+\n</body></html>
