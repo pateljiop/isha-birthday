@@ -207,16 +207,7 @@ function updateCountdown(){const el=document.getElementById('countdown');const n
 updateCountdown();
 const picks=[];let selectedResponse='';
 function pick(step,btn){const parent=btn.parentElement;parent.querySelectorAll('.choice').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');picks[step]=btn.textContent.trim();setTimeout(()=>{document.getElementById('step'+step).classList.remove('active');if(step<2){document.getElementById('step'+(step+1)).classList.add('active');document.getElementById('stepLabel').textContent='LEVEL 0'+(step+2)+' / 03';document.getElementById('progressBar').style.width=((step+1)/3*100)+'%'}else{document.getElementById('progressBar').style.width='100%';document.getElementById('stepLabel').textContent='LEVEL POORA';document.getElementById('missionDone').classList.remove('hidden')}},220)}
-function setResponse(value,btn){selectedResponse=value;document.querySelectorAll('#responseChoices button').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');const msg='Hey! Maine tumhara chhota sa friendship mission complete kiya. 🌷
-
-Mere answers:
-1. '+(picks[0]||'')+'
-2. '+(picks[1]||'')+'
-3. '+(picks[2]||'')+'
-
-Mera jawab: '+value+'
-
-Is chhote se birthday surprise ke liye thank you!';const url='https://wa.me/918604958587?text='+encodeURIComponent(msg);const link=document.getElementById('sendWhatsApp');link.href=url;link.classList.add('ready');link.setAttribute('aria-disabled','false')}
+function setResponse(value,btn){selectedResponse=value;document.querySelectorAll('#responseChoices button').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');const msg=`Hey! Maine tumhara chhota sa friendship mission complete kiya. 🌷\n\nMere answers:\n1. ${picks[0]||''}\n2. ${picks[1]||''}\n3. ${picks[2]||''}\n\nMera jawab: ${value}\n\nIs chhote se birthday surprise ke liye thank you!`;const url='https://wa.me/918604958587?text='+encodeURIComponent(msg);const link=document.getElementById('sendWhatsApp');link.href=url;link.classList.add('ready');link.setAttribute('aria-disabled','false')}
 </script>
 
 
@@ -284,7 +275,8 @@ try{
  function cutCake(){next.disabled=true;knife.visible=true;slice.visible=true;slice.position.set(0,1.5,-.85);anim={type:'knife',t:0};poseArms(true)}
  function feed(toIsha){next.disabled=true;bite.visible=true;bite.position.set(toIsha?-1.5:1.5,1.85,1.4);anim={type:toIsha?'feedIsha':'feedYou',t:0};poseArms(true)}
  function popBalloons(){const remaining=balloons.filter(b=>!b.popped);if(!remaining.length){status.textContent='Saare balloons pop ho gaye! Happy Birthday! 🎉';burstAt(new THREE.Vector3(0,3,0),0xffd36b,65);return}const b=remaining[0];b.popped=true;burstAt(b.group.position,balloonColors[balloons.indexOf(b)],28);b.group.visible=false;status.textContent='Pop! Ek aur balloon gaya! 🎈';if(balloons.every(b=>b.popped)){burstAt(new THREE.Vector3(0,3,0),0xffd36b,70);status.textContent='Saare balloons pop! Tum dono ki celebration complete! ❤️'}}
- function advance(){if(anim||next.disabled)return;if(step===0)lightCandles();else if(step===1)blowCandles();else if(step===2)cutCake();else if(step===3)feed(true);else if(step===4)feed(false);else if(step===5){next.disabled=true;for(let i=0;i<balloons.length;i++){balloonTimers.push(setTimeout(()=>{const b=balloons[i];if(!b.popped){b.popped=true;burstAt(b.group.position,balloonColors[i],26);b.group.visible=false}},i*220))}balloonTimers.push(setTimeout(()=>{burstAt(new THREE.Vector3(0,3,0),0xffd36b,75);step=6;setStepText();status.textContent=lines[6];next.textContent='🎉 Celebrate again';progress.style.width='100%';next.disabled=false},220*balloons.length+250))}
+ function finishCelebration(){balloonTimers.forEach(clearTimeout);balloonTimers=[];step=6;setStepText();status.textContent=lines[6];next.textContent='🎉 Celebrate again';progress.style.width='100%';next.disabled=false;burstAt(new THREE.Vector3(0,3,0),0xffd36b,75)}
+ function advance(){if(anim||next.disabled)return;if(step===0)lightCandles();else if(step===1)blowCandles();else if(step===2)cutCake();else if(step===3)feed(true);else if(step===4)feed(false);else if(step===5){next.disabled=true;for(let i=0;i<balloons.length;i++){balloonTimers.push(setTimeout(()=>{const b=balloons[i];if(!b.popped){b.popped=true;burstAt(b.group.position,balloonColors[i],26);b.group.visible=false}},i*220))}balloonTimers.push(setTimeout(finishCelebration,220*balloons.length+250))}
  if(step<5){step++;setStepText()}}
  next.addEventListener('click',()=>{if(step===6){reset();return}advance()});
  document.getElementById('birthdayReset').addEventListener('click',reset);
@@ -292,7 +284,7 @@ try{
  setStepText();
  // Tap an individual balloon during the balloon stage.
  const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();
- renderer.domElement.addEventListener('pointerdown',e=>{if(step!==5)return;const r=renderer.domElement.getBoundingClientRect();pointer.x=(e.clientX-r.left)/r.width*2-1;pointer.y=-(e.clientY-r.top)/r.height*2+1;raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(balloons.filter(b=>!b.popped).map(b=>b.shell));if(hits.length){const b=balloons.find(b=>b.shell===hits[0].object);if(b){b.popped=true;burstAt(b.group.position,balloonColors[balloons.indexOf(b)],28);b.group.visible=false;if(balloons.every(v=>v.popped)){status.textContent='Saare balloons pop! Tum dono ki celebration complete! ❤️';}}}});
+ renderer.domElement.addEventListener('pointerdown',e=>{if(step!==5)return;const r=renderer.domElement.getBoundingClientRect();pointer.x=(e.clientX-r.left)/r.width*2-1;pointer.y=-(e.clientY-r.top)/r.height*2+1;raycaster.setFromCamera(pointer,camera);const hits=raycaster.intersectObjects(balloons.filter(b=>!b.popped).map(b=>b.shell));if(hits.length){const b=balloons.find(b=>b.shell===hits[0].object);if(b){b.popped=true;burstAt(b.group.position,balloonColors[balloons.indexOf(b)],28);b.group.visible=false;if(balloons.every(v=>v.popped)){finishCelebration();}else{status.textContent='Saare balloons pop! Tum dono ki celebration complete! ❤️'}}}});
  function animate(){requestAnimationFrame(animate);const t=performance.now()*.001;
   stars.forEach((s,i)=>{s.scale.setScalar(.8+Math.sin(t*2+i)*.15)});
   balloons.forEach(b=>{if(!b.popped)b.group.position.y=b.baseY+Math.sin(t*1.3+b.phase)*.12});
