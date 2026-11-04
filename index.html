@@ -39,7 +39,7 @@
 <div class="intro-screen" id="introScreen" role="dialog" aria-modal="true" aria-labelledby="introTitle"><div class="intro-inner"><div class="intro-seal" aria-hidden="true">💌</div><div class="eyebrow">Ek chhota sa surprise</div><h2 id="introTitle">Hey Isha,<br>ye tumhare liye hai.</h2><p>Thoda sa pyaar, dher saari smiles aur tumhare naam ek poori digital duniya. Taiyaar ho?</p><button class="btn rose" type="button" onclick="openSurprise()">Surprise kholo ♡</button><p class="tiny">Achhe experience ke liye aaram se neeche dekhna ✨</p></div></div><div class="petals" id="petals" aria-hidden="true"></div>\n<a class="skip-link" href="#birthday">Seedha birthday wishes par jao</a>
 <header class="hero" id="top"><div class="hero-inner wrap">
 <div class="eyebrow">Tumhare liye ek chhoti si duniya</div>
-<h1 class="serif">For Isha<span class="sparkle">.</span></h1>
+<h1 class="serif">Isha ke naam<span class="sparkle">.</span></h1>
 <div class="date-pill">✦ &nbsp; 15 November 2026 &nbsp; ✦</div>
 <p>Kuch din extra khushiyan deserve karte hain. Internet ka ye chhota sa corner sirf tumhare liye hai.</p>
 <button class="btn rose" onclick="document.querySelector('#birthday').scrollIntoView({behavior:'smooth'})">Apna surprise kholo <span>♡</span></button>
@@ -121,8 +121,8 @@
 <div class="center hidden" id="missionDone"><div class="envelope">💌</div><h3 class="serif">Mission poora hua!</h3><p class="tiny">Ek chhoti si baat kehni thi...</p><p style="font-family:Georgia,serif">Tum mujhe Bhaiya bolti ho, aur main us comfort aur respect ki value karta hoon. Bas kabhi tumhara mann ho toh hum achhe dost ki tarah bhi baat kar sakte hain — random conversations, hasi-mazaak aur simple si dosti. Bilkul koi pressure nahi. Tumhara comfort sabse important hai.</p>
 <p class="tiny">Toh dosti ke ek naye chapter ke baare mein tum kya sochti ho?</p>
 <div class="response" id="responseChoices">
-<button onclick="setResponse('Chalo dost banein! 😊',this)">🌷 Let's be friends!</button>
-<button onclick="setResponse('Dheere-dheere dekhte hain 🌸',this)">🌸 Let's see where it goes</button>
+<button onclick="setResponse('Chalo dost banein! 😊',this)">🌷 Chalo dost banein!</button>
+<button onclick="setResponse('Dheere-dheere dekhte hain 🌸',this)">🌸 Dheere-dheere dekhte hain</button>
 <button onclick="setResponse('Mujhe thoda time chahiye 😊',this)">😊 Mujhe thoda time chahiye</button>
 </div>
 <a id="sendWhatsApp" class="whatsapp" target="_blank" rel="noopener" href="#" aria-disabled="true">Apna jawab WhatsApp par bhejo ↗</a>
@@ -132,7 +132,7 @@
 <p class="tiny" style="margin-top:18px">Ye sirf ek invitation hai. Koi answer expected nahi hai, aur tumhara har choice okay hai.</p>
 </div></section>
 <section class="section center" id="ending"><div class="wrap">
-<div class="eyebrow">Jaane se pehle</div><div style="font-size:2.5rem">✦ 🌷 ✦</div><h2 class="serif">Aise hi chamakti rehna,<br>Isha.</h2><p class="muted">Tumhe muskurane ki chhoti-chhoti wajah, sukoon dene wale log aur halke-phulke din milte rahein.</p><div class="final-surprise"><div style="font-size:2.4rem">🎁</div><div class="eyebrow">Aakhri chhota sa surprise</div><h3 class="serif" style="font-size:2rem;margin:8px 0">Ek wish aur?</h3><p class="muted">Button dabao — tumhare liye ek aakhri birthday wish aur thodi si flower baarish.</p><button class="btn rose" type="button" onclick="finalWish()">Final surprise kholo ✨</button><div class="final-message" id="finalMessage" aria-live="polite">Tumhara aane wala har chapter khoobsurat ho. ♡</div></div><div class="divider"></div><p class="tiny">Dher saari wishes ke saath · 15 November 2026</p>
+<div class="eyebrow">Jaane se pehle</div><div style="font-size:2.5rem">✦ 🌷 ✦</div><h2 class="serif">Aise hi chamakti rehna,<br>Isha.</h2><p class="muted">Tumhe muskurane ki chhoti-chhoti wajah, sukoon dene wale log aur halke-phulke din milte rahein.</p><div class="final-surprise"><div style="font-size:2.4rem">🎁</div><div class="eyebrow">Aakhri chhota sa surprise</div><h3 class="serif" style="font-size:2rem;margin:8px 0">Ek wish aur?</h3><p class="muted">Button dabao — tumhare liye ek aakhri birthday wish aur thodi si flower baarish.</p><button class="btn rose" type="button" onclick="finalWish()">Aakhri surprise kholo ✨</button><div class="final-message" id="finalMessage" aria-live="polite">Tumhara aane wala har chapter khoobsurat ho. ♡</div></div><div class="divider"></div><p class="tiny">Dher saari wishes ke saath · 15 November 2026</p>
 </div></section>
 </main>
 <footer class="footer"><div class="wrap"><div class="serif" style="font-size:1.6rem">Isha ke liye ek chhoti si duniya ♡</div><p class="tiny">Aaram se dekho. Apna din enjoy karna.</p><a class="tiny" href="#top">Wapas shuruat par jao ↑</a></div></footer>
@@ -141,7 +141,7 @@ function openSurprise(){const intro=document.getElementById("introScreen");intro
 document.body.style.overflow="hidden";
 function chooseWish(i){const wishes=["Aaj bas thoda rest, ek deep breath aur khud ke liye kindness. Tumhe har cheez abhi solve nahi karni. 🌙","Tum jitna sochti ho usse zyada capable ho. Ek-ek step leti raho — progress ho rahi hai. ✨","Aaj ek chhoti si smile tumhare naam. Tumhara din gentle aur lovely ho. 😊"];document.getElementById("wishResult").textContent=wishes[i]}
 function revealDreamPromise(){document.getElementById("dreamPromise").classList.toggle("show")}
-function finalWish(){document.getElementById("finalMessage").textContent="Isha, tumhari life mein khushiyan, sukoon, achhe dost aur sapno ko poora karne ki himmat hamesha bani rahe. Happy Birthday in advance! ♡";const layer=document.getElementById("petals");const icons=["🌸","🌷","✨","💗","🌼"];for(let i=0;i<30;i++){const p=document.createElement("span");p.className="petal";p.textContent=icons[Math.floor(Math.random()*icons.length)];p.style.left=Math.random()*100+"%";p.style.setProperty("--drift",(Math.random()*180-90)+"px");p.style.animationDelay=(Math.random()*.8)+"s";layer.appendChild(p);setTimeout(()=>p.remove(),5000)}}
+function finalWish(){document.getElementById("finalMessage").textContent="Isha, tumhari life mein khushiyan, sukoon, achhe dost aur sapno ko poora karne ki himmat hamesha bani rahe. Advance mein Happy Birthday! ♡";const layer=document.getElementById("petals");const icons=["🌸","🌷","✨","💗","🌼"];for(let i=0;i<30;i++){const p=document.createElement("span");p.className="petal";p.textContent=icons[Math.floor(Math.random()*icons.length)];p.style.left=Math.random()*100+"%";p.style.setProperty("--drift",(Math.random()*180-90)+"px");p.style.animationDelay=(Math.random()*.8)+"s";layer.appendChild(p);setTimeout(()=>p.remove(),5000)}}
 
 const flowerMessages=[
 "Normal din mein bhi thodi dhoop si khushi tum tak pahunche. ☀️",
