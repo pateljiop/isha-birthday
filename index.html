@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8f2e9">
+<meta name="description" content="A little birthday world made with warm wishes for Isha.">
+<title>For Isha — A Little World of Happiness</title>
+<style>
+:root{--cream:#f8f2e9;--paper:#fffdf8;--ink:#443b38;--muted:#887b75;--rose:#c98786;--rose2:#efd5d0;--gold:#c6a66b;--line:#eadfd4;--sage:#a9b5a0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}button{font:inherit}a{color:inherit}.serif{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.035em}.wrap{width:min(100% - 36px,720px);margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;color:var(--rose);font-weight:700}.section{padding:76px 0;position:relative}.center{text-align:center}.muted{color:var(--muted)}.tiny{font-size:.82rem;color:var(--muted)}.btn{border:0;border-radius:999px;padding:14px 23px;background:var(--ink);color:white;cursor:pointer;box-shadow:0 8px 24px #493b381b;transition:transform .2s,box-shadow .2s}.btn:active{transform:scale(.97)}.btn.light{background:var(--paper);color:var(--ink);border:1px solid var(--line)}.btn.rose{background:var(--rose);color:white}.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:70px 0 58px;overflow:hidden;background:radial-gradient(ellipse at 50% 35%,#fffaf5 0,#f8f2e9 65%)}.hero:before,.hero:after{content:"✿";position:absolute;color:#d8b7a7;opacity:.36;font-size:clamp(5rem,18vw,10rem);font-family:Georgia;animation:float 7s ease-in-out infinite}.hero:before{top:8%;left:5%;transform:rotate(-18deg)}.hero:after{bottom:8%;right:6%;animation-delay:-3s}.hero-inner{position:relative;z-index:1}.hero h1{font-size:clamp(3.5rem,16vw,7.3rem);line-height:.98;margin:18px 0;color:#594744}.hero p{max-width:320px;margin:18px auto 28px;color:var(--muted)}.date-pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:99px;padding:7px 14px;background:#ffffff8a;font-size:.76rem;color:var(--muted)}.scroll-note{margin-top:42px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#a8988e}.divider{width:58px;height:1px;background:var(--gold);margin:22px auto}.section h2{font-size:clamp(2.3rem,10vw,4rem);line-height:1.05;margin:12px 0 16px}.cake{font-size:5rem;display:inline-block;filter:drop-shadow(0 10px 12px #b9876b22);animation:bob 3s ease-in-out infinite}.wish-card{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:28px 23px;box-shadow:0 16px 50px #5947440a}.wish-card p{max-width:480px;margin:10px auto}.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}.photo{background:#fffefa;padding:10px 10px 18px;border:1px solid #eee4d9;box-shadow:0 12px 28px #59474412;transform:rotate(-2deg)}.photo:nth-child(2){transform:rotate(2deg);margin-top:18px}.photo:nth-child(3){transform:rotate(1.5deg)}.photo:nth-child(4){transform:rotate(-1deg);margin-top:18px}.photo-frame{aspect-ratio:4/5;background:linear-gradient(145deg,#f2e2dc,#f9f3e9 60%,#e9e6d8);display:grid;place-items:center;text-align:center;color:#a88c83;padding:12px;overflow:hidden}.photo-frame img{width:100%;height:100%;object-fit:cover;display:block}.photo-frame .placeholder{font-family:Georgia,serif;font-size:1.1rem;line-height:1.35}.photo figcaption{text-align:center;font-family:Georgia,serif;color:#76635d;padding-top:10px;font-size:.94rem}.note-list{display:grid;gap:12px;margin-top:28px}.note{background:#fffaf4;border:1px solid var(--line);border-radius:17px;padding:16px 18px;display:flex;gap:13px;align-items:flex-start}.note b{display:block;font-family:Georgia,serif;font-size:1.1rem;font-weight:400}.note .icon{font-size:1.3rem}.garden{background:#f2eee5;border-radius:28px;padding:28px 18px;margin-top:25px}.flowers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.flower{border:1px solid #e4d9cb;background:#fffaf3;border-radius:18px;padding:15px 7px;min-height:112px;cursor:pointer;color:var(--ink);transition:transform .2s}.flower:active{transform:scale(.96)}.flower span{display:block;font-size:2rem}.flower small{display:block;color:var(--muted);font-size:.72rem;margin-top:5px}.reveal{margin-top:16px;min-height:65px;border-radius:16px;background:#fffdf8;padding:15px;color:#786761;font-family:Georgia,serif}.letter{background:#fffdf8;border:1px solid var(--line);border-radius:7px;padding:30px 24px;box-shadow:0 18px 45px #5947440c;position:relative}.letter:before{content:"";position:absolute;inset:8px;border:1px solid #eee5da;pointer-events:none}.letter p{position:relative;margin:0 0 15px}.letter .sign{font-family:Georgia,serif;font-style:italic;color:var(--rose);font-size:1.25rem}.quest{background:#f1e6df;border-radius:28px;padding:26px 20px;margin-top:25px}.progress{height:5px;background:#e2d4cb;border-radius:9px;overflow:hidden;margin:18px 0}.progress span{display:block;height:100%;width:0;background:var(--rose);transition:width .3s}.choices{display:grid;gap:10px;margin-top:16px}.choice{background:#fffdf8;border:1px solid #e6d8ce;border-radius:15px;padding:13px 15px;text-align:left;color:var(--ink);cursor:pointer}.choice.selected{border-color:var(--rose);background:#fff7f4;box-shadow:0 0 0 2px #c9878622}.quest-step{display:none}.quest-step.active{display:block}.envelope{font-size:3.5rem;display:inline-block;animation:bob 3s infinite}.response{display:grid;gap:10px;margin:20px 0}.response button{border:1px solid var(--line);background:#fffdf8;border-radius:16px;padding:14px;text-align:left;color:var(--ink);cursor:pointer}.response button.selected{border-color:var(--rose);background:#fff6f3}.whatsapp{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#287e55;color:white;text-decoration:none;border-radius:99px;padding:14px 22px;font-weight:650;opacity:.45;pointer-events:none}.whatsapp.ready{opacity:1;pointer-events:auto}.footer{padding:55px 0 35px;text-align:center;background:#f3ebe1}.sparkle{color:var(--gold)}.hidden{display:none!important}@keyframes float{50%{translate:0 -12px;rotate:8deg}}@keyframes bob{50%{transform:translateY(-7px)}}@media(min-width:620px){.section{padding:100px 0}.photo-grid{gap:22px}.photo{padding:13px 13px 22px}.letter{padding:42px 44px}.hero p{max-width:430px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero" id="top"><div class="hero-inner wrap">
+<div class="eyebrow">A little world made for you</div>
+<h1 class="serif">For Isha<span class="sparkle">.</span></h1>
+<div class="date-pill">✦ &nbsp; 15 November 2026 &nbsp; ✦</div>
+<p>Some days deserve a little extra happiness. This tiny corner of the internet is just for you.</p>
+<button class="btn rose" onclick="document.querySelector('#birthday').scrollIntoView({behavior:'smooth'})">Open your surprise <span>♡</span></button>
+<div class="scroll-note">made with warm wishes · scroll slowly</div>
+</div></header>
+<main>
+<section class="section center" id="birthday"><div class="wrap">
+<div class="eyebrow">Today is all about you</div><div class="cake">🎂</div>
+<h2 class="serif">Happy Birthday,<br><i>Isha!</i></h2><div class="divider"></div>
+<div class="wish-card"><p>May this new year of your life bring you peaceful mornings, genuine smiles, beautiful surprises and countless reasons to feel proud of yourself.</p><p class="tiny">Keep growing, keep glowing. You deserve good things. 🌷</p></div>
+<p class="tiny" id="countdown" style="margin-top:20px"></p>
+</div></section>
+<section class="section" id="gallery"><div class="wrap center">
+<div class="eyebrow">Little moments, lovely you</div><h2 class="serif">A little photo<br>corner</h2><p class="muted">A few snapshots to make this page feel a little more like yours.</p>
+<div class="photo-grid">
+<figure class="photo"><div class="photo-frame"><div class="placeholder">Your favourite<br>smile goes here ✿<br><small>Photo 01</small></div></div><figcaption>A smile worth saving</figcaption></figure>
+<figure class="photo"><div class="photo-frame"><div class="placeholder">A lovely<br>little moment ✿<br><small>Photo 02</small></div></div><figcaption>Little things, big memories</figcaption></figure>
+<figure class="photo"><div class="photo-frame"><div class="placeholder">A moment<br>that feels like you ✿<br><small>Photo 03</small></div></div><figcaption>Simply being you</figcaption></figure>
+<figure class="photo"><div class="photo-frame"><div class="placeholder">One more<br>beautiful memory ✿<br><small>Photo 04</small></div></div><figcaption>Keep this glow</figcaption></figure>
+</div><p class="tiny" style="margin-top:20px">Photo spaces are ready — personal photos can be added once selected.</p>
+</div></section>
+<section class="section center" id="reminders"><div class="wrap">
+<div class="eyebrow">A few gentle reminders</div><h2 class="serif">Things to<br>remember</h2>
+<div class="note-list" style="text-align:left">
+<div class="note"><span class="icon">🌷</span><div><b>You matter.</b><span class="tiny">Even on the quiet days, your presence has value.</span></div></div>
+<div class="note"><span class="icon">✨</span><div><b>Your pace is okay.</b><span class="tiny">You don't have to figure everything out all at once.</span></div></div>
+<div class="note"><span class="icon">🫶</span><div><b>You deserve kindness.</b><span class="tiny">Especially from yourself.</span></div></div>
+<div class="note"><span class="icon">🌱</span><div><b>Your dreams are worth it.</b><span class="tiny">One small step at a time is still progress.</span></div></div>
+</div>
+</div></section>
+<section class="section center" id="garden"><div class="wrap">
+<div class="eyebrow">A tiny happy place</div><h2 class="serif">Pick a flower,<br>find a little joy</h2><p class="muted">Tap any flower. It has a small reminder waiting for you.</p>
+<div class="garden"><div class="flowers">
+<button class="flower" onclick="flowerMessage(0)"><span>🌼</span><small>Sunshine</small></button>
+<button class="flower" onclick="flowerMessage(1)"><span>🌷</span><small>Kindness</small></button>
+<button class="flower" onclick="flowerMessage(2)"><span>🌻</span><small>Courage</small></button>
+<button class="flower" onclick="flowerMessage(3)"><span>🌸</span><small>Hope</small></button>
+<button class="flower" onclick="flowerMessage(4)"><span>🪻</span><small>Peace</small></button>
+<button class="flower" onclick="flowerMessage(5)"><span>🌺</span><small>Joy</small></button>
+</div><div class="reveal" id="flowerText" aria-live="polite">Your little message will appear here ✨</div></div>
+</div></section>
+<section class="section" id="letter"><div class="wrap center">
+<div class="eyebrow">A note, just for you</div><h2 class="serif">A little letter</h2>
+<div class="letter" style="text-align:left;margin-top:25px">
+<p>Dear Isha,</p>
+<p>I hope your birthday brings you the kind of happiness that stays even after the candles are blown out.</p>
+<p>I know you are working towards your dreams in nursing. I hope you keep believing in yourself, learning new things and becoming the person you want to be. Your journey matters, and I wish you confidence and success at every step.</p>
+<p>And whenever life feels a little too busy or quiet, I hope you remember that you deserve good people, kind conversations and moments that make you smile. You don't have to be cheerful every second, and you don't have to handle every day perfectly.</p>
+<p>Wishing you a year full of growth, warmth and lovely little surprises.</p>
+<p class="sign">With warm wishes ♡</p>
+</div></div></section>
+<section class="section center" id="friendship"><div class="wrap">
+<div class="eyebrow">One tiny bonus mission</div><h2 class="serif">The Friendship<br>Level 🎮</h2><p class="muted">Birthday surprises ke baad ek chhota sa fun mission. No pressure, just for smiles.</p>
+<div class="quest" style="text-align:left">
+<div class="tiny" id="stepLabel">MISSION 01 / 03</div><div class="progress"><span id="progressBar"></span></div>
+<div class="quest-step active" id="step0"><h3 class="serif">Choose your kind of vibe</h3><p class="tiny">A good day sounds like...</p><div class="choices"><button class="choice" onclick="pick(0,this)">☕ Coffee and random conversations</button><button class="choice" onclick="pick(0,this)">🌸 A peaceful walk and fresh air</button><button class="choice" onclick="pick(0,this)">😂 Laughing at silly things</button></div></div>
+<div class="quest-step" id="step1"><h3 class="serif">Choose a superpower</h3><p class="tiny">If you could keep one forever...</p><div class="choices"><button class="choice" onclick="pick(1,this)">✨ Making ordinary days brighter</button><button class="choice" onclick="pick(1,this)">😂 Finding a reason to laugh</button><button class="choice" onclick="pick(1,this)">🌷 Spreading calm, kind energy</button></div></div>
+<div class="quest-step" id="step2"><h3 class="serif">Your friendship rule?</h3><p class="tiny">The best connections need...</p><div class="choices"><button class="choice" onclick="pick(2,this)">💬 Honest and easy conversations</button><button class="choice" onclick="pick(2,this)">🫶 Respect and no pressure</button><button class="choice" onclick="pick(2,this)">🌈 Laughter and good vibes</button></div></div>
+<div class="center hidden" id="missionDone"><div class="envelope">💌</div><h3 class="serif">Mission complete!</h3><p class="tiny">Ek chhoti si baat kehni thi...</p><p style="font-family:Georgia,serif">Tum mujhe Bhaiya bolti ho, aur main us comfort aur respect ki value karta hoon. Bas kabhi tumhara mann ho toh hum achhe dost ki tarah bhi baat kar sakte hain — random conversations, hasi-mazaak aur simple si dosti. Bilkul koi pressure nahi. Tumhara comfort sabse important hai.</p>
+<p class="tiny">So, what do you think about a new friendship chapter?</p>
+<div class="response" id="responseChoices">
+<button onclick="setResponse('Let’s be friends! 😊',this)">🌷 Let's be friends!</button>
+<button onclick="setResponse('Let’s see where it goes 🌸',this)">🌸 Let's see where it goes</button>
+<button onclick="setResponse('I need a little time 😊',this)">😊 I need a little time</button>
+</div>
+<a id="sendWhatsApp" class="whatsapp" target="_blank" rel="noopener" href="#" aria-disabled="true">Send my answer on WhatsApp ↗</a>
+<p class="tiny">WhatsApp will open with a message preview. It will only be sent if you choose to press Send.</p>
+</div>
+</div>
+<p class="tiny" style="margin-top:18px">This is only an invitation. No answer is expected, and every choice is okay.</p>
+</div></section>
+<section class="section center" id="ending"><div class="wrap">
+<div class="eyebrow">Before you go</div><div style="font-size:2.5rem">✦ 🌷 ✦</div><h2 class="serif">Keep shining,<br>Isha.</h2><p class="muted">May you find little reasons to smile, people who make you feel at ease, and days that feel lighter.</p><div class="divider"></div><p class="tiny">Made with warm wishes · 15 November 2026</p>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap"><div class="serif" style="font-size:1.6rem">A little world for Isha ♡</div><p class="tiny">Take all the time you need. Enjoy your day.</p><a class="tiny" href="#top">Back to the beginning ↑</a></div></footer>
+<script>
+const flowerMessages=[
+"May a little sunshine find you, even on an ordinary day. ☀️",
+"Be as kind to yourself as you are to the people around you. 🌷",
+"You are stronger than the days that make you doubt yourself. 🌻",
+"Good things can grow slowly. Keep a little hope with you. 🌸",
+"May your mind find quiet, and your heart find ease. 🪻",
+"You deserve moments of pure, uncomplicated joy. 🌺"
+];
+function flowerMessage(i){document.getElementById('flowerText').textContent=flowerMessages[i]}
+const birthday=new Date('2026-11-15T00:00:00+05:30');
+function updateCountdown(){const el=document.getElementById('countdown');const now=new Date();let diff=birthday-now;if(diff<=0){el.textContent='Today is your day. Happy Birthday! ♡';return}const d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000);el.textContent=d+' days and '+h+' hours until your special day ✨'}
+updateCountdown();
+const picks=[];let selectedResponse='';
+function pick(step,btn){const parent=btn.parentElement;parent.querySelectorAll('.choice').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');picks[step]=btn.textContent.trim();setTimeout(()=>{document.getElementById('step'+step).classList.remove('active');if(step<2){document.getElementById('step'+(step+1)).classList.add('active');document.getElementById('stepLabel').textContent='MISSION 0'+(step+2)+' / 03';document.getElementById('progressBar').style.width=((step+1)/3*100)+'%'}else{document.getElementById('progressBar').style.width='100%';document.getElementById('stepLabel').textContent='MISSION COMPLETE';document.getElementById('missionDone').classList.remove('hidden')}},220)}
+function setResponse(value,btn){selectedResponse=value;document.querySelectorAll('#responseChoices button').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');const msg='Hey! I completed your little friendship mission. 🌷\n\nMy answers:\n1. '+(picks[0]||'')+'\n2. '+(picks[1]||'')+'\n3. '+(picks[2]||'')+'\n\nMy response: '+value+'\n\nThanks for making this little birthday surprise!';const url='https://wa.me/918604958587?text='+encodeURIComponent(msg);const link=document.getElementById('sendWhatsApp');link.href=url;link.classList.add('ready');link.setAttribute('aria-disabled','false')}
+</script>
+</body></html>
