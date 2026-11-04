@@ -1,0 +1,12 @@
+{
+  "name": "For Isha — A Little World of Happiness",
+  "short_name": "For Isha",
+  "description": "A little birthday world made with warm wishes.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8f2e9",
+  "theme_color": "#f8f2e9",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
