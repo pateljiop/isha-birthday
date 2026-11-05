@@ -90,22 +90,22 @@
 </div></section>
 <section class="section center" id="comfort"><div class="wrap">
 <div class="eyebrow">Thoda sa pause, thodi si positivity</div><h2 class="serif">Khud ke liye<br>ek chhota break</h2>
-<p class="muted">Kabhi-kabhi sab kuch theek hote hue bhi mann akela feel kar sakta hai. Aise moments ke liye yahan kuch pyaari si baatein hain.</p>
+<p class="muted">Birthday ke beech ek chhota sa pause — halka feel karne, smile karne aur achhi vibes ke liye.</p>
 <div class="comfort-card">
 <div style="font-size:2.1rem" aria-hidden="true">🫶</div>
-<div class="comfort-message" id="comfortMessage" aria-live="polite">Har waqt theek hone ka pretend karna zaroori nahi. Tumhari feelings bhi patience aur care deserve karti hain.</div>
+<div class="comfort-message" id="comfortMessage" aria-live="polite">Apne liye thoda waqt nikalna bhi zaroori hai. Aaram se raho aur birthday enjoy karo.</div>
 <div class="comfort-actions">
 <button class="btn rose" type="button" onclick="comfortNote()">Thoda sa hausla</button>
 <button class="btn light" type="button" onclick="smallStep()">Ek chhota sa kadam</button>
 </div>
-<p class="comfort-foot" id="comfortFoot" aria-live="polite">Dheere se saans lo. Turant better feel karne ki koi jaldi nahi hai.</p>
+<p class="comfort-foot" id="comfortFoot" aria-live="polite">Aaram se dekho, jo achha lage use apne saath le jao.</p>
 </div>
 <div class="note-list" style="text-align:left">
-<div class="note"><span class="icon">🌙</span><div><b>Kabhi-kabhi quiet days hona bilkul normal hai.</b><span class="tiny">Ek mushkil din tumhari poori life define nahi karta.</span></div></div>
+<div class="note"><span class="icon">🌙</span><div><b>Har din ek nayi shuruaat ho sakta hai.</b><span class="tiny">Chhoti si progress bhi celebrate karne layak hai.</span></div></div>
 <div class="note"><span class="icon">☕</span><div><b>Bahut chhote step se bhi shuruaat ho sakti hai.</b><span class="tiny">Thoda paani piyo, aaram se baitho ya fresh air ke liye bahar chali jao.</span></div></div>
 <div class="note"><span class="icon">💌</span><div><b>Kisi apne se baat karna bilkul okay hai.</b><span class="tiny">Kisi trusted person ko bas itna kehna kaafi hai — “Thodi der baat kar sakte hain?” Perfect words ki zaroorat nahi.</span></div></div>
 </div>
-<p class="comfort-foot">Agar akelapan baar-baar heavy lage, toh kisi trusted person ya counsellor se baat karna help kar sakta hai. Real life mein bhi support milna zaroori hai. ♡</p>
+<p class="comfort-foot">Ye corner bas ek chhoti si positive break ke liye hai. ♡</p>
 </div></section>
 <section class="section center" id="garden"><div class="wrap">
 <div class="eyebrow">Ek chhoti si happy place</div><h2 class="serif">Phool chuno,<br>khushi pao</h2><p class="muted">Kisi bhi flower par tap karo. Ek chhota sa message tumhara wait kar raha hai.</p>
@@ -173,9 +173,9 @@ const flowerMessages=[
 function flowerMessage(i){const el=document.getElementById('flowerText');el.textContent=flowerMessages[i];el.classList.remove('sparkle-burst');void el.offsetWidth;el.classList.add('sparkle-burst')}
 function randomSmile(){flowerMessage(Math.floor(Math.random()*flowerMessages.length))}
 const comfortNotes=[
-["Apni feelings rakhna koi burden nahi hai. Tum jaisi ho, waise hi tumhari baat suni jaani chahiye.","Har waqt cheerful ya helpful rehkar care earn karne ki zaroorat nahi."],
-["Aaj agar akelapan feel ho raha hai, toh yaad rakhna ye feeling tumhari poori kahani nahi hai.","Tum aisi dosti deserve karti ho jahan bina pretend kiye apni tarah reh sako."],
-["Aaj ko ek-ek gentle moment ke saath jeena bhi kaafi hai.","Tumhari value is baat se decide nahi hoti ki kitne messages aaye ya din kitna busy tha."]
+["Har chhoti khushi ko notice karo — kabhi-kabhi wahi din ko special bana deti hai.","Apni pace par aage badhna bhi ek achhi baat hai."],
+["Thoda rest, thodi hasi aur apne liye kuch achha — itna break bhi kaafi hai.","Aaj ka din apne tareeke se enjoy karo."],
+["Nayi cheezein try karte raho aur har chhoti progress celebrate karo.","Tumhare aane wale dino ke liye dher saari positive wishes."]
 ];
 let comfortIndex=0;
 function comfortNote(){const pool=comfortNotes.flat();const el=document.getElementById('comfortMessage');el.textContent=pool[comfortIndex%pool.length];comfortIndex++;document.getElementById('comfortFoot').textContent='Aaram se padhna. Jab mann kare, is corner mein wapas aa sakti ho.';el.classList.remove('sparkle-burst');void el.offsetWidth;el.classList.add('sparkle-burst')}
